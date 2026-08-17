@@ -46,7 +46,9 @@
         <h1 id="hero-title">Ein Gedanke.<br>Ein Gefühl.<br><span>Der passende Sound.</span></h1>
         <p class="hero-copy">Musik für Gedanken, Gefühle und Momente, die ihren eigenen Sound brauchen.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#jetzt">Daran arbeite ich gerade</a>
+          <!-- Wird mit dem ersten veröffentlichten Song sichtbar und auf den passenden Hör-Link gesetzt. -->
+          <a class="button button-primary" href="#geschichte" data-listen-cta hidden>Musik hören</a>
+          <a class="button button-primary" href="#jetzt" data-current-cta>Daran arbeite ich gerade</a>
           <a class="button button-ghost" href="#idee">Was KOLVERUM ist</a>
         </div>
         <div class="hero-rule" aria-hidden="true"></div>
@@ -58,7 +60,7 @@
         <p class="section-kicker">Die Idee</p>
         <h2>Der Stil ist nicht das Ziel.<br><span>Er ist das Werkzeug.</span></h2>
         <div class="manifesto-grid">
-          <p>Ein Song beginnt bei KOLVERUM nicht mit der Frage nach dem Genre. Er beginnt mit einem Gedanken, einem Gefühl oder einem Moment.</p>
+          <p>Bei KOLVERUM beginnt ein Song nicht mit der Frage nach dem Genre. Er beginnt mit einem Gedanken, einem Gefühl oder einem Moment.</p>
           <p>Mal laut. Mal ruhig. Mal ernst. Mal mit einem Augenzwinkern. Entscheidend ist nicht, in welche Schublade ein Lied passt, sondern ob sein Sound zu dem passt, was es erzählen soll.</p>
         </div>
       </div>
@@ -94,7 +96,7 @@
                 <p class="project-label">Training · Motivation · Bewegung</p>
                 <h3>GYM</h3>
               </div>
-              <span class="project-status">In Entwicklung</span>
+              <span class="project-status">Aktiv</span>
             </div>
 
             <div class="project-story">
@@ -119,7 +121,7 @@
                 <p class="project-label">Feiern · Energie · Bewegung</p>
                 <h3>FEIERN</h3>
               </div>
-              <span class="project-status">In Entwicklung</span>
+              <span class="project-status">Aktiv</span>
             </div>
 
             <div class="project-story">
@@ -142,16 +144,34 @@
     </section>
 
     <section class="section history" id="geschichte">
-      <div class="shell history-grid">
-        <div>
-          <p class="section-kicker">Geschichte</p>
-          <h2>Was daraus wurde.</h2>
+      <div class="shell">
+        <div class="history-grid">
+          <div>
+            <p class="section-kicker">Geschichte</p>
+            <h2>Was daraus wurde.</h2>
+          </div>
+          <div class="history-copy">
+            <p>Jeder veröffentlichte Song bekommt hier seinen Platz. Das Projekt, aus dem er entstanden ist, kann gleichzeitig weiterlaufen.</p>
+            <p>Mit jedem Release wächst seine Geschichte. Erst wenn ein Projekt wirklich abgeschlossen ist, wandert auch das Projekt selbst vollständig hierher — mit Grund, Idee, Ziel und allem, was daraus entstanden ist.</p>
+          </div>
         </div>
-        <div class="history-copy">
-          <p>Wenn ein Projekt fertig ist, verschwindet es nicht. Es wandert hierher.</p>
-          <p>Grund, Idee und Ziel bleiben erhalten. Dazu kommen die entstandenen Songs und die Entwicklung vom ersten Gedanken bis zum fertigen Projekt.</p>
-          <div class="history-empty">Noch entsteht die erste Geschichte.</div>
+
+        <div class="release-list" data-releases>
+          <div class="history-empty" data-release-empty>Noch ist kein Song veröffentlicht.</div>
         </div>
+
+        <!-- Vorlage für künftige Releases. Sie ist unsichtbar und wird beim ersten fertigen Release befüllt. -->
+        <template id="release-template">
+          <article class="release-card">
+            <div class="release-meta">
+              <span data-release-project>PROJEKT</span>
+              <time data-release-date></time>
+            </div>
+            <h3 data-release-title>Songtitel</h3>
+            <p data-release-story></p>
+            <div class="release-links" data-release-links hidden></div>
+          </article>
+        </template>
       </div>
     </section>
 
@@ -162,16 +182,16 @@
           <h2>Musik, die ich selbst hören möchte.</h2>
         </div>
         <div class="about-copy">
-          <p>KOLVERUM ist ein unabhängiges Musikprojekt. Es entsteht aus Gedanken, Texten und musikalischen Ideen für Training, Freude, Verlust, Dankbarkeit, Zweifel, Motivation und alles andere, das einen Menschen bewegen kann.</p>
-          <p>KI ist dabei ein Produktionswerkzeug: Sie macht es möglich, Ideen in hörbare Songs zu verwandeln und ihnen unterschiedliche musikalische Formen zu geben. Die Richtung beginnt beim Inhalt.</p>
+          <p>KOLVERUM ist ein unabhängiges Musikprojekt. Es entsteht aus Gedanken, Textideen und musikalischen Vorstellungen für Training, Freude, Verlust, Dankbarkeit, Zweifel, Motivation und alles andere, das einen Menschen bewegen kann.</p>
+          <p>KI ist Teil der Umsetzung. Sie hilft mir, Ideen hörbar zu machen und unterschiedliche musikalische Formen auszuprobieren. Thema, Auswahl, Überarbeitung und kreative Richtung bleiben Teil meines Prozesses.</p>
         </div>
       </div>
     </section>
 
-    <section class="section prelaunch" aria-labelledby="prelaunch-title">
+    <section class="section prelaunch" aria-labelledby="growth-title">
       <div class="shell prelaunch-inner">
-        <p class="section-kicker">Im Aufbau</p>
-        <h2 id="prelaunch-title">KOLVERUM wächst mit der Musik.</h2>
+        <p class="section-kicker">Fortlaufend</p>
+        <h2 id="growth-title">KOLVERUM wächst mit der Musik.</h2>
         <p>Neue Gedanken, Projekte, Songs und ihre Geschichte kommen hinzu, wenn sie entstehen.</p>
       </div>
     </section>
@@ -180,6 +200,8 @@
   <footer class="site-footer">
     <div class="shell footer-inner">
       <a class="wordmark" href="#top">KOLVERUM</a>
+      <!-- Wird sichtbar, sobald die offiziellen Social-/Streaming-Links vorliegen. -->
+      <nav class="social-links" data-social-links aria-label="KOLVERUM auf anderen Plattformen" hidden></nav>
       <p>© <span data-year></span> KOLVERUM</p>
     </div>
   </footer>
