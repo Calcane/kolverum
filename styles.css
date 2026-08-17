@@ -219,7 +219,7 @@ img { max-width: 100%; display: block; }
   letter-spacing: -.025em;
 }
 
-.worlds { background: #0d0d0d; }
+.current-work { background: #0d0d0d; }
 .section-head {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(280px, .6fr);
@@ -227,57 +227,101 @@ img { max-width: 100%; display: block; }
   align-items: end;
 }
 .section-note { margin: 0; color: var(--muted); max-width: 420px; }
-.world-grid {
+
+.project-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 56px;
+  gap: 20px;
+  margin-top: 64px;
 }
-.world-card {
-  position: relative;
-  min-height: 420px;
-  padding: 30px;
+.project-card {
+  padding: 34px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: linear-gradient(160deg, #171717 0%, #111 100%);
-  overflow: hidden;
 }
-.world-card::after {
-  content: "";
-  position: absolute;
-  width: 180px;
-  height: 180px;
-  right: -75px;
-  bottom: -75px;
-  border: 1px solid rgba(183,154,88,.22);
-  border-radius: 50%;
+.project-card.featured { border-color: rgba(183,154,88,.5); }
+.project-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+  align-items: flex-start;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--line);
 }
-.world-card.featured { border-color: rgba(183,154,88,.5); }
-.world-card.muted-card { background: #101010; }
-.world-index { color: #706b61; font-size: .72rem; letter-spacing: .16em; }
-.world-label {
-  margin: 88px 0 10px;
+.project-label {
+  margin: 0 0 10px;
   color: var(--gold-soft);
   font-size: .69rem;
   text-transform: uppercase;
   letter-spacing: .14em;
   font-weight: 800;
 }
-.world-card h3 {
-  margin: 0 0 18px;
-  font-size: clamp(2rem, 4vw, 3.7rem);
-  letter-spacing: -.04em;
+.project-card h3 {
+  margin: 0;
+  font-size: clamp(2.4rem, 5vw, 4.7rem);
+  letter-spacing: -.045em;
   line-height: 1;
 }
-.world-card > p:not(.world-label) { color: #aaa59a; max-width: 32ch; }
-.world-status {
-  position: absolute;
-  left: 30px;
-  bottom: 28px;
-  font-size: .72rem;
-  color: #858075;
+.project-status {
+  flex: 0 0 auto;
+  padding: 8px 12px;
+  border: 1px solid #3b3934;
+  border-radius: 999px;
+  color: #999388;
+  font-size: .68rem;
   text-transform: uppercase;
-  letter-spacing: .11em;
+  letter-spacing: .1em;
+}
+.project-story {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 30px;
+}
+.story-block {
+  min-height: 180px;
+  padding: 4px 30px 0 0;
+}
+.story-block + .story-block {
+  padding-left: 30px;
+  border-left: 1px solid var(--line);
+}
+.story-block span {
+  display: block;
+  margin-bottom: 16px;
+  color: var(--gold);
+  font-size: .7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+}
+.story-block p {
+  margin: 0;
+  color: #b8b3a8;
+  font-size: 1rem;
+}
+.story-block.pending p {
+  color: #6f6a61;
+  font-style: italic;
+}
+
+.history { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.history-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+.history-copy { padding-top: 36px; }
+.history-copy p { margin: 0 0 20px; color: #bbb6ab; font-size: 1.05rem; }
+.history-empty {
+  margin-top: 38px;
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  color: #777269;
+  font-size: .82rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
 }
 
 .about { border-bottom: 1px solid var(--line); }
@@ -317,10 +361,15 @@ img { max-width: 100%; display: block; }
   .hero::after { display: none; }
   .manifesto-grid,
   .section-head,
+  .history-grid,
   .about-grid { grid-template-columns: 1fr; gap: 30px; }
-  .world-grid { grid-template-columns: 1fr; }
-  .world-card { min-height: 360px; }
-  .world-label { margin-top: 56px; }
+  .project-story { grid-template-columns: 1fr; }
+  .story-block { min-height: auto; padding: 0 0 26px; }
+  .story-block + .story-block {
+    padding: 26px 0;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
   .section { padding: 82px 0; }
 }
 
@@ -331,8 +380,8 @@ img { max-width: 100%; display: block; }
   .hero h1 { font-size: clamp(3rem, 17vw, 4.7rem); }
   .manifesto-grid { grid-template-columns: 1fr; }
   .principle-list article { grid-template-columns: 48px 1fr; min-height: 94px; }
-  .world-card { padding: 24px; }
-  .world-status { left: 24px; }
+  .project-card { padding: 24px; }
+  .project-head { flex-direction: column; }
   .footer-inner { flex-direction: column; justify-content: center; }
 }
 
