@@ -12,6 +12,7 @@
   <meta property="og:url" content="https://kolverum.com/">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://kolverum.com/">
+  <link rel="icon" type="image/svg+xml" href="assets/kolverum-mark.svg">
   <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">
   {
@@ -19,6 +20,7 @@
     "@type": "MusicGroup",
     "name": "KOLVERUM",
     "url": "https://kolverum.com/",
+    "logo": "https://kolverum.com/assets/kolverum-mark.svg",
     "description": "Musik für Gedanken, Gefühle und Momente, die ihren eigenen Sound brauchen."
   }
   </script>
@@ -28,7 +30,10 @@
 
   <header class="site-header" data-header>
     <div class="shell header-inner">
-      <a class="wordmark" href="#top" aria-label="KOLVERUM Startseite">KOLVERUM</a>
+      <a class="brand-lockup" href="#top" aria-label="KOLVERUM Startseite">
+        <img class="brand-mark" src="assets/kolverum-mark.svg" alt="" aria-hidden="true">
+        <span>KOLVERUM</span>
+      </a>
       <nav class="nav" aria-label="Hauptnavigation">
         <a href="#idee">Idee</a>
         <a href="#jetzt">Jetzt</a>
@@ -42,16 +47,20 @@
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="hero-noise" aria-hidden="true"></div>
       <div class="shell hero-inner">
-        <p class="eyebrow">KOLVERUM</p>
-        <h1 id="hero-title">Ein Gedanke.<br>Ein Gefühl.<br><span>Der passende Sound.</span></h1>
-        <p class="hero-copy">Musik für Gedanken, Gefühle und Momente, die ihren eigenen Sound brauchen.</p>
-        <div class="hero-actions">
-          <!-- Wird mit dem ersten veröffentlichten Song sichtbar und auf den passenden Hör-Link gesetzt. -->
-          <a class="button button-primary" href="#geschichte" data-listen-cta hidden>Musik hören</a>
-          <a class="button button-primary" href="#jetzt" data-current-cta>Daran arbeite ich gerade</a>
-          <a class="button button-ghost" href="#idee">Was KOLVERUM ist</a>
+        <div class="hero-message">
+          <h1 id="hero-title">Ein Gedanke.<br>Ein Gefühl.<br><span>Der passende Sound.</span></h1>
+          <p class="hero-copy">Musik für Gedanken, Gefühle und Momente, die ihren eigenen Sound brauchen.</p>
+          <div class="hero-actions">
+            <!-- Wird mit dem ersten veröffentlichten Song sichtbar und auf den passenden Hör-Link gesetzt. -->
+            <a class="button button-primary" href="#geschichte" data-listen-cta hidden>Musik hören</a>
+            <a class="button button-primary" href="#jetzt" data-current-cta>Daran arbeite ich gerade</a>
+            <a class="button button-ghost" href="#idee">Was KOLVERUM ist</a>
+          </div>
+          <div class="hero-rule" aria-hidden="true"></div>
         </div>
-        <div class="hero-rule" aria-hidden="true"></div>
+        <div class="hero-brand" aria-label="KOLVERUM Logo">
+          <img src="assets/kolverum-logo.svg" alt="KOLVERUM">
+        </div>
       </div>
     </section>
 
@@ -199,7 +208,10 @@
 
   <footer class="site-footer">
     <div class="shell footer-inner">
-      <a class="wordmark" href="#top">KOLVERUM</a>
+      <a class="brand-lockup brand-lockup-footer" href="#top" aria-label="KOLVERUM Startseite">
+        <img class="brand-mark" src="assets/kolverum-mark.svg" alt="" aria-hidden="true">
+        <span>KOLVERUM</span>
+      </a>
       <!-- Wird sichtbar, sobald die offiziellen Social-/Streaming-Links vorliegen. -->
       <nav class="social-links" data-social-links aria-label="KOLVERUM auf anderen Plattformen" hidden></nav>
       <p>© <span data-year></span> KOLVERUM</p>
