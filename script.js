@@ -10,3 +10,19 @@ const updateHeader = () => {
 
 updateHeader();
 window.addEventListener('scroll', updateHeader, { passive: true });
+
+const gymCrushCard = document.querySelector('.current-song-card');
+
+if (gymCrushCard && !gymCrushCard.querySelector('.release-links')) {
+  const releaseLinks = document.createElement('div');
+  releaseLinks.className = 'release-links';
+
+  const hyperfollowLink = document.createElement('a');
+  hyperfollowLink.href = 'https://distrokid.com/hyperfollow/kolverum/gym-crush';
+  hyperfollowLink.target = '_blank';
+  hyperfollowLink.rel = 'noopener noreferrer';
+  hyperfollowLink.textContent = 'Pre-Save / Release merken';
+
+  releaseLinks.appendChild(hyperfollowLink);
+  gymCrushCard.appendChild(releaseLinks);
+}
